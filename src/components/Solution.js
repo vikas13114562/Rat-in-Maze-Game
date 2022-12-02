@@ -17,7 +17,7 @@ export default function Solution() {
         visArr.push(temp)
     }
 
-    // const [vis, setVis] = useState(visArr)
+    
 
     
     const dirI = [1,0,0,-1];
@@ -39,7 +39,7 @@ export default function Solution() {
                 }
                 a.push(b)
             }
-
+            console.log(JSON.stringify(a))
             // solutionArr.push(temp);
             solutionArr.push(a)
             return;
@@ -52,10 +52,10 @@ export default function Solution() {
             if(nextI >= 0 && nextJ >= 0 && nextI < n && nextJ < n
                  && visArr[nextI][nextJ]===0 && problemArr[nextI][nextJ] === 1){
                     
-                    visArr[nextI][nextJ] = 2
                     
+                    visArr[i][j] = 2
                     solve(nextI, nextJ,problemArr,visArr,dirI,dirJ,solutionArr,n);
-                    visArr[nextI][nextJ] = 0
+                    visArr[i][j] = 0
                  }
         }
     }
@@ -67,7 +67,7 @@ export default function Solution() {
     function getAllData() {
         solve(0,0, arr,visArr,dirI,dirJ,ans,size)
       let temp =  ans.map((arr,inx) => {
-            console.log(JSON.stringify(arr))
+            
             return(
                 <Fragment key={inx}>
                     <Problem arr = {arr} size = {size} />
@@ -77,7 +77,7 @@ export default function Solution() {
         setSol(temp)
         setPath(temp.length)
         setFlag(true)
-        // console.log(container)
+        
     }
   return (
     <>
