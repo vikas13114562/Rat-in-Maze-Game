@@ -82,8 +82,9 @@ export default function Solution() {
   return (
     <>
         <div className='btn-container'>
+        <button onClick={getAllData} >Get Result</button>
             <h3>Total Path : {flag ? path : ""}</h3>
-            <button onClick={getAllData} >Get Result</button>
+            
         </div>
         <div className='solution-container'>{sol}</div>
     </>

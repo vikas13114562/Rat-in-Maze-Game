@@ -14,9 +14,9 @@ export const DataProvider = ({children}) => {
 
     const problemArr = [
         [1,1,1,0],
-        [1,1,1,1],
-        [1,1,1,1],
-        [1,1,1,1],
+        [1,0,1,1],
+        [1,1,0,1],
+        [0,1,1,1],
     ]
     
     const [arr] = useState(problemArr)
