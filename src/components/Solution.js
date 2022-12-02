@@ -30,7 +30,7 @@ export default function Solution() {
             for(let r=0; r<4; r++) {
                 let b = []
                 for(let c=0; c<4; c++) {
-                    if(temp[r][c] ==0 && problemArr[r][c] == 1){
+                    if(temp[r][c] ===0 && problemArr[r][c] === 1){
                         b.push(1)
                     }else{
                         b.push(temp[r][c])
