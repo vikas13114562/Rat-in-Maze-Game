@@ -1,15 +1,16 @@
-import React, { Fragment } from "react";
+import React, { Fragment,useContext } from "react";
 import './Components.css'
 import "./Components.css";
 import Rat from "./Rat";
 import WhiteDiv from "./WhiteDiv";
+import { DataContext } from "./context/data-contex";
 
 import Destination from "./Destination";
 import GreenDiv from './GreenDiv'
 
-export default function Card({arr,size,row,col,getUpdate}) {
+export default function Card({arr,size,getUpdate}) {
   
-
+  const {col} = useContext(DataContext)
    
   const newArr = arr.map((row, i) => {
     let colLength = row.length;
@@ -27,10 +28,6 @@ export default function Card({arr,size,row,col,getUpdate}) {
             return <Destination key={`${i},${j}`} />;
           }
 
-          // if (ele === 0) {
-            
-          //   return <RedDiv key={`${i},${j}`} />;
-          // }
 
           if (ele === 1 || ele === 0) {
             

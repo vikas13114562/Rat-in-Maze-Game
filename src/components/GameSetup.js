@@ -5,16 +5,15 @@ import { DataContext } from './context/data-contex';
 
 export default function GameSetup() {
 
-    const {setArr} = useContext(DataContext)
+    const {setArr,row,setRow,col,setCol} = useContext(DataContext)
 
-    const [row, setRow] = useState("");
-    const [col, setCol] = useState("");
+    
     const [questionArr, setQuestionArr] = useState([]);
 
     function fillArray() {
         let pA = new Array(Number(row)).fill(1).map(()=> new Array(Number(col)).fill(1));
          setQuestionArr(pA) 
-        
+        setArr(pA)
     }
     function getUpdate(rowInd, colInd,isClicked) {
         if(isClicked) {
@@ -55,7 +54,7 @@ export default function GameSetup() {
         </div>
          <div className='game-setup' >
             <Card arr = {questionArr} size = {questionArr.length}
-             row = {row} col = {col} getUpdate = {getUpdate} />
+              getUpdate = {getUpdate} />
          </div>
     </div>
   )
