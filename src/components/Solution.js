@@ -4,32 +4,18 @@ import Problem from './Problem';
 
 export default function Solution() {
 
-    const {arr, size} = useContext(DataContext)
-
-    const visArr = [];
-    const ans = []
-    
-    for(let r=0; r<4; r++) {
-        let temp = []
-        for(let c=0; c<4; c++) {
-            temp.push(0)
-        }
-        visArr.push(temp)
-    }
-
-    
-
-    
+    const {arr} = useContext(DataContext)
+  
     const dirI = [1,0,0,-1];
     const dirJ = [0,-1,1,0];
 
-    function solve(i,j,problemArr,visArr,dirI,dirJ,solutionArr,n) {
-        if(i === n-1 && j=== n-1) {
+    function solve(i,j,problemArr,visArr,dirI,dirJ,solutionArr,size) {
+        if(i === size-1 && j=== problemArr[0].length-1) {
             let temp = JSON.parse(JSON.stringify(visArr))
             let a = [];
-            for(let r=0; r<4; r++) {
+            for(let r=0; r<size; r++) {
                 let b = []
-                for(let c=0; c<4; c++) {
+                for(let c=0; c<problemArr[0].length; c++) {
                     if(temp[r][c] ===0 && problemArr[r][c] === 1){
                         b.push(1)
                     }else{
@@ -39,22 +25,21 @@ export default function Solution() {
                 }
                 a.push(b)
             }
-            console.log(JSON.stringify(a))
-            // solutionArr.push(temp);
+            
             solutionArr.push(a)
             return;
         }
     
-        for(let ind =0; ind < n; ind++) {
+        for(let ind =0; ind < 4; ind++) {
             let nextI = i + dirI[ind]
             let nextJ = j + dirJ[ind]
     
-            if(nextI >= 0 && nextJ >= 0 && nextI < n && nextJ < n
+            if(nextI >= 0 && nextJ >= 0 && nextI < size && nextJ < problemArr[0].length
                  && visArr[nextI][nextJ]===0 && problemArr[nextI][nextJ] === 1){
                     
                     
                     visArr[i][j] = 2
-                    solve(nextI, nextJ,problemArr,visArr,dirI,dirJ,solutionArr,n);
+                    solve(nextI, nextJ,problemArr,visArr,dirI,dirJ,solutionArr,size);
                     visArr[i][j] = 0
                  }
         }
@@ -65,12 +50,24 @@ export default function Solution() {
     const [path,setPath] = useState(0)
 
     function getAllData() {
-        solve(0,0, arr,visArr,dirI,dirJ,ans,size)
+        const visArr = [];
+        const ans = []
+    
+        for(let r=0; r<arr.length; r++) {
+        
+            let temp = []
+            for(let c=0; c<arr[0].length; c++) {
+                temp.push(0)
+            }
+            visArr.push(temp)
+        }
+        
+        solve(0,0, arr,visArr,dirI,dirJ,ans,arr.length)
       let temp =  ans.map((arr,inx) => {
             
             return(
                 <Fragment key={inx}>
-                    <Problem arr = {arr} size = {size} />
+                    <Problem arr = {arr} size = {arr.length} col ={arr[0].length} />
                 </Fragment>
             )
         })

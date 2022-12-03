@@ -2,14 +2,14 @@ import React, { Fragment } from "react";
 import './Components.css'
 import "./Components.css";
 import Rat from "./Rat";
-import ProblemWhiteDiv from "./ProblemWhiteDiv";
-import RedDiv from "./RedDiv";
+import WhiteDiv from "./WhiteDiv";
+
 import Destination from "./Destination";
 import GreenDiv from './GreenDiv'
 
-export default function Problem({arr,size,col}) {
+export default function Card({arr,size,row,col,getUpdate}) {
   
-  // console.log('from prob ',arr);
+
    
   const newArr = arr.map((row, i) => {
     let colLength = row.length;
@@ -27,23 +27,23 @@ export default function Problem({arr,size,col}) {
             return <Destination key={`${i},${j}`} />;
           }
 
-          if (ele === 0) {
+          // if (ele === 0) {
             
-            return <RedDiv key={`${i},${j}`} />;
-          }
+          //   return <RedDiv key={`${i},${j}`} />;
+          // }
 
-          if (ele === 1 ) {
+          if (ele === 1 || ele === 0) {
             
-            return <ProblemWhiteDiv key={`${i},${j}`} />;
+            return <WhiteDiv key={`${i},${j}`} id={`${i},${j}`} getUpdate = {getUpdate} />;
           }
 
           if(ele === 2) {
             return(
-              <GreenDiv key={`${i},${j}`}  />
+              <GreenDiv key={`${i},${j}`} />
             )
           }
           else return (
-            <h1 key={`${i},${j}`} >Hello</h1>
+            <h1 key={`${i},${j}`}>Hello</h1>
           )
 
         })}

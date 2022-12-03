@@ -3,20 +3,20 @@
     padding: 0px;
     box-sizing: border-box;
 }
-.white{
+.white,.problem-white{
     width: 4rem;
     height: 4rem;
     background-color: while;
     border: 0.5px black solid;
+    
+}
+.white{
+    cursor: pointer;
 }
 
 .rat {
     padding: 10px;
     background-image: url('./rat.png');
-    background-size: cover;
-}
-.des {
-    background-image: url('./home.png');
     background-size: cover;
 }
 
@@ -25,6 +25,8 @@
     justify-content: center;
     align-items: center;
     font-size: 32px;
+    background-image: url('./home.png');
+    background-size: cover;
 }
 
 .red{
@@ -63,8 +65,28 @@
 }
 .problem-setup{
     display: grid;
-   grid-template-columns: repeat(4,1fr);
+   
 }
+.game-setup,.input-container, .game-setup-container {
+    display: flex;
+    align-items: center;
+}
+.input-container{
+    justify-content: space-around;
+    gap: 40px;
+}
+.game-setup-container{
+    gap: 20px;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+input{
+    height: 30px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
 
 .btn-container {
     padding: 20px;
@@ -80,5 +102,5 @@ button {
     width: 120px;
     height: 30px;
     border-radius: 4px;
-
+    cursor: pointer;
 }
