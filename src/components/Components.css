@@ -73,8 +73,16 @@
 }
 .input-container{
     justify-content: space-around;
-    gap: 40px;
+    gap: 30px;
+    
 }
+
+@media only screen and (max-width: 600px) {
+    .input-container{
+      flex-direction: column;
+    }
+  }
+
 .game-setup-container{
     gap: 20px;
     flex-direction: column;
