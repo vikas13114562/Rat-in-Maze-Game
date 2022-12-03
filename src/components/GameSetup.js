@@ -1,4 +1,4 @@
-import React, {useState, useEffect,useContext} from 'react'
+import React, {useState, useContext} from 'react'
 import Card from './Card';
 import './Components.css'
 import { DataContext } from './context/data-contex';
@@ -40,10 +40,7 @@ export default function GameSetup() {
         }
         
     } 
-    // useEffect(() => {
-        
-    //     console.log(JSON.stringify(pA));
-    // },[row, col])
+   
     
     
     
