@@ -11,6 +11,7 @@ export const DataContext = createContext({
     setCol:()=>{},
     gameSetupClick:false,
     setGameSetupClick:()=>{},
+    
 })
 
 
@@ -21,13 +22,15 @@ export const DataProvider = ({children}) => {
     const [col, setCol] = useState("");
     const [arr,setArr] = useState([])
     const [gameSetupClick,setGameSetupClick] = useState(false)
+    
    
     const [size] = useState(arr.length)
    
     
     
 
-    const value = {arr,size,setArr,row,col,setCol,setRow,gameSetupClick,setGameSetupClick}
+    const value = {arr,size,setArr,row,col,setCol,
+                    setRow,gameSetupClick,setGameSetupClick}
 
     return (
         <DataContext.Provider value={value} >{children}</DataContext.Provider>

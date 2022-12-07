@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
 import './Components.css'
 
+
 export default function WhiteDiv({id, getUpdate}) {
+
 
   const [isClicked, setIsClicked] = useState(false)
 

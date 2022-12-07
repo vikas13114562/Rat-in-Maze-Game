@@ -13,7 +13,6 @@ export default function GameSetup() {
     function fillArray() {
         setGameSetupClick(!gameSetupClick)
         let pA = new Array(Number(row)).fill(1).map(()=> new Array(Number(col)).fill(1));
-       
         setQuestionArr(pA) 
         setArr(pA)
     }
@@ -52,7 +51,9 @@ export default function GameSetup() {
             value={row} onChange={(event)=>setRow(event.target.value)} />
             <input name='col' placeholder='Enter no of columns'
             value={col} onChange={(event)=>setCol(event.target.value)} />
-            <button onClick={fillArray}>Game Setup</button>
+            <button onClick={fillArray} style = {{
+                display:gameSetupClick? "none":"",
+            }}>Game Setup</button>
         </div>
          <div className='game-setup' >
             <Card arr = {questionArr} 

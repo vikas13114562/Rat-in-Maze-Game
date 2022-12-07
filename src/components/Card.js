@@ -32,7 +32,8 @@ export default function Card({arr,getUpdate}) {
   
             if (ele === 1 || ele === 0) {
               
-              return <WhiteDiv key={`${i},${j}`} id={`${i},${j}`} getUpdate = {getUpdate} />;
+              return <WhiteDiv key={`${i},${j}`} id={`${i},${j}`} 
+              getUpdate = {getUpdate}  />;
             }
   
             else return (
@@ -48,5 +49,6 @@ export default function Card({arr,getUpdate}) {
   
 
 
-  return <div className="problem-setup" style={{gridTemplateColumns: `repeat(${col},1fr)`}}>{newArr}</div>;
+  return <div className="problem-setup" style={{gridTemplateColumns: `repeat(${col},1fr)`}}>
+    {newArr}</div>;
 }
