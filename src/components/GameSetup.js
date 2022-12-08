@@ -52,7 +52,7 @@ export default function GameSetup() {
             <input name='col' placeholder='Enter no of columns'
             value={col} onChange={(event)=>setCol(event.target.value)} />
             <button onClick={fillArray} style = {{
-                display:gameSetupClick? "none":"",
+                display:gameSetupClick? "":"",
             }}>Game Setup</button>
         </div>
          <div className='game-setup' >

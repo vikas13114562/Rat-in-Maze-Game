@@ -2,9 +2,9 @@ import React,{useState} from 'react'
 import './Components.css'
 
 
-export default function WhiteDiv({id, getUpdate}) {
 
-
+export default function WhiteDiv({id, getUpdate,ele}) {
+  
   const [isClicked, setIsClicked] = useState(false)
 
   function getDetails(e) {
@@ -17,6 +17,6 @@ export default function WhiteDiv({id, getUpdate}) {
    
   }
   return (
-    <div className={!isClicked? "white":"red"} onClick={getDetails} id = {id}></div>
+    <div className={ele ===1 ? "white":"red"} onClick={getDetails} id = {id}></div>
   )
 }

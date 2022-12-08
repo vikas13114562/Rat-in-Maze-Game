@@ -10,6 +10,7 @@ import Destination from "./Destination";
 
 export default function Card({arr,getUpdate}) {
   
+  
   const {col,gameSetupClick} = useContext(DataContext)
   const [newArr, setNewArr] = useState([])
   useEffect(() => {
@@ -33,7 +34,7 @@ export default function Card({arr,getUpdate}) {
             if (ele === 1 || ele === 0) {
               
               return <WhiteDiv key={`${i},${j}`} id={`${i},${j}`} 
-              getUpdate = {getUpdate}  />;
+              getUpdate = {getUpdate} ele = {ele}  />;
             }
   
             else return (
@@ -46,7 +47,6 @@ export default function Card({arr,getUpdate}) {
     });
     setNewArr(temp)
   },[arr, getUpdate,gameSetupClick])
-  
 
 
   return <div className="problem-setup" style={{gridTemplateColumns: `repeat(${col},1fr)`}}>
