@@ -6,13 +6,19 @@ import { DataContext } from './context/data-contex';
 export default function GameSetup() {
 
     const {setArr,row,setRow,col,setCol,setGameSetupClick,gameSetupClick} = useContext(DataContext)
-
+    
     
     const [questionArr, setQuestionArr] = useState([]);
+    const [message, setMessage] = useState("");
 
     function fillArray() {
         setGameSetupClick(!gameSetupClick)
-        let pA = new Array(Number(row)).fill(1).map(()=> new Array(Number(col)).fill(1));
+        if(row >5 || col > 5) {
+            setMessage("Row and Column value should be less than 5")
+            return;
+        }
+        setMessage("");
+        let pA = new Array(Math.floor(Number(row))).fill(1).map(()=> new Array(Math.floor(Number(col))).fill(1));
         setQuestionArr(pA) 
         setArr(pA)
     }
@@ -47,7 +53,7 @@ export default function GameSetup() {
   return (
     <div className='game-setup-container'>
         <div className='input-container'>
-            <input name='row' placeholder='Enter no of rows'
+            <input name='row' placeholder='Enter no of rows '
             value={row} onChange={(event)=>setRow(event.target.value)} />
             <input name='col' placeholder='Enter no of columns'
             value={col} onChange={(event)=>setCol(event.target.value)} />
@@ -55,6 +61,7 @@ export default function GameSetup() {
                 display:gameSetupClick? "":"",
             }}>Game Setup</button>
         </div>
+        <div className='alert'>{message}</div>
          <div className='game-setup' >
             <Card arr = {questionArr} 
               getUpdate = {getUpdate} />
